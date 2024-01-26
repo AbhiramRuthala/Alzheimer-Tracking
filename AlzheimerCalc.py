@@ -1,7 +1,9 @@
+# Import necessary files. 
 import time
 import random
 import sys
 
+#Input the necessary neurotransmitter
 HormoneTracker = input("Which hormone are you tracking? ")
 
 neuronLevels = {
@@ -36,6 +38,7 @@ def AlzheimerSim():
 
 
     if result > 70:
+        # \033[1m makes the text BOLD
         print("\033[1mImportant:\033[0m ")
         print("Not too severe!")
     elif result > 60:
@@ -55,10 +58,12 @@ def AlzheimerSim():
         print("You are in critical condition")
 
     for word in neuron:
+        # check if the input is in the list.
         if HormoneTracker == word:
             time.sleep(1)
             print(" ")
             print("\033[1mNext Step:\033[0m ")
+            # Calls for another neurotransmitter once one is identified.
             print("I think we should check for " + str(random.choice(neuron)))
         else:
             pass
