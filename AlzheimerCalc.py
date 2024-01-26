@@ -32,13 +32,13 @@ def AlzheimerSim():
     else:
         result = AlzheimerDiseaseCalc - 14
     print("The Alzheimer Simulation is being conducted...")
-    time.sleep(2)
+    time.sleep(1)
     print("Original value: " + str(neuronLevels.get(HormoneTracker)))
-    print("Final value: " + str(result))
+    print("Current value: " + str(result))
 
 
+    # Classify the severity of the condition after checking the results of the Alzheimer simulation. 
     if result > 70:
-        # \033[1m makes the text BOLD
         print("\033[1mImportant:\033[0m ")
         print("Not too severe!")
     elif result > 60:
@@ -64,7 +64,7 @@ def AlzheimerSim():
             print(" ")
             print("\033[1mNext Step:\033[0m ")
             # Calls for another neurotransmitter once one is identified.
-            print("I think we should check for " + str(random.choice(neuron)))
+            print("\x1B[3mI think we should check for \x1B[0m" + str(random.choice(neuron)))
         else:
             pass
 
