@@ -28,6 +28,7 @@ def AlzheimerSim():
     AlzheimerDiseaseCalc = neuronLevels.get(HormoneTracker, "Invalid type!")
     if AlzheimerDiseaseCalc == "Invalid type!":
         print("Invalid neurotransmitter type!")
+        # Break the function - I'll change this later
         sys.exit()
     else:
         result = AlzheimerDiseaseCalc - 14
