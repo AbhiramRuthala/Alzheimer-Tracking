@@ -1,6 +1,6 @@
 # Import necessary files. 
 import time
-import random
+import random as rd
 import sys
 
 #Input the necessary neurotransmitter
@@ -64,7 +64,7 @@ def AlzheimerSim():
             print(" ")
             print("\033[1mNext Step:\033[0m ")
             # Calls for another neurotransmitter once one is identified.
-            print("\x1B[3mI think we should check for \x1B[0m" + str(random.choice(neuron)))
+            print("\x1B[3mI think we should check for \x1B[0m" + str(rd.choice(neuron)))
         else:
             pass
 
