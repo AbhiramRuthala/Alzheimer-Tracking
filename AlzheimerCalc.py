@@ -1,7 +1,8 @@
-# Import necessary files. 
+# Import necessary files.
 import time
 import random as rd
 import sys
+import matplotlib.pyplot as plt
 
 #Input the necessary neurotransmitter
 HormoneTracker = input("Which hormone are you tracking? ")
@@ -26,9 +27,9 @@ neuron = ["acetylcholine",
 # Function will check for neuron levels and the effect posed by Alzheimer's.
 def AlzheimerSim():
     AlzheimerDiseaseCalc = neuronLevels.get(HormoneTracker, "Invalid type!")
+    
     if AlzheimerDiseaseCalc == "Invalid type!":
         print("Invalid neurotransmitter type!")
-        # Break the function - I'll change this later
         sys.exit()
     else:
         result = AlzheimerDiseaseCalc - 14
@@ -38,7 +39,7 @@ def AlzheimerSim():
     print("Current value: " + str(result))
 
 
-    # Classify the severity of the condition after checking the results of the Alzheimer simulation. 
+    # Classify the severity of the condition after checking the results of the Alzheimer simulation.
     if result > 70:
         print("\033[1mImportant:\033[0m ")
         print("Not too severe!")
@@ -58,6 +59,30 @@ def AlzheimerSim():
         print("\033[1mImportant:\033[0m ")
         print("You are in critical condition")
 
+    # Define the code to plot the graph
+
+    # X-Axis values
+    x = [0, 2]
+
+    # corresponding Y-Axis values
+    y = [neuronLevels.get(HormoneTracker), result]
+
+    # Plotting the points
+    plt.plot(x, y, color='green')
+
+    # X-Axis plot
+    plt.xlabel('Time (In seconds)')
+
+    # Y-Axis plot
+    plt.ylabel(HormoneTracker.capitalize() + ' Levels')
+
+    # Title for the graph
+    plt.title('The ' + HormoneTracker.capitalize() + ' levels over time (In seconds)')
+
+    # function to show the plot
+    plt.show()
+
+
     for word in neuron:
         # check if the input is in the list.
         if HormoneTracker == word:
@@ -69,5 +94,7 @@ def AlzheimerSim():
         else:
             pass
 
+
 # Alzheimer's Disease will be simulated on sample neurotransmitter values.
 AlzheimerSim()
+
