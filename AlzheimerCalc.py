@@ -3,6 +3,7 @@ import time
 import random as rd
 import sys
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Input the necessary neurotransmitter
 HormoneTracker = input("Which hormone are you tracking? ")
