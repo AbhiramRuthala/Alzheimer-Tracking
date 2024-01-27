@@ -4,38 +4,50 @@ import random as rd
 import sys
 import matplotlib.pyplot as plt
 
-#Input the necessary neurotransmitter
+# Input the necessary neurotransmitter
 HormoneTracker = input("Which hormone are you tracking? ")
 
 neuronLevels = {
     "acetylcholine": 90,
     "dopamine": 85,
-    "Gaba":75,
-    "serotonin":70,
-    "endorphins":50,
-    "glutamate":30
+    "Gaba": 75,
+    "serotonin": 70,
+    "endorphins": 50,
+    "glutamate": 30,
+    "norepinephrine": 45,
+    "epinephrine": 57,
+    "oxytocin": 74,
+    "purines": 980,
+    "monoamines": 7584,
+    "peptides": 475
 }
+
 
 neuron = ["acetylcholine",
           "dopamine",
           "serotonin",
           "Gaba",
           "endorphins",
-          "glutamate"]
+          "glutamate",
+          "norepinephrine",
+          "epinephrine",
+          "oxytocin",
+          "purines",
+          "monoamines",
+          "peptides"]
 
 
 # Function will check for neuron levels and the effect posed by Alzheimer's.
 def AlzheimerSim():
     AlzheimerDiseaseCalc = neuronLevels.get(HormoneTracker, "Invalid type!")
-    
     if AlzheimerDiseaseCalc == "Invalid type!":
         print("Invalid neurotransmitter type!")
         sys.exit()
     else:
         result = AlzheimerDiseaseCalc - 14
     print("The Alzheimer Simulation is being conducted...")
-    # This function causes the system to pause for 1 second. The time is dependent on the value passed within the parentheses (It reads it in seconds).
     time.sleep(1)
+    # Display the original value and the current value
     print("Original value: " + str(neuronLevels.get(HormoneTracker)))
     print("Current value: " + str(result))
 
@@ -59,6 +71,11 @@ def AlzheimerSim():
     elif result > 15 and result < 30:
         print("\033[1mImportant:\033[0m ")
         print("You are in critical condition")
+    elif result > 5 and result < 15:
+        print("\033[1mImportant:\033[0m ")
+        print("You are in very critical condition")
+    else:
+        pass
 
     # Define the code to plot the graph
 
@@ -69,7 +86,7 @@ def AlzheimerSim():
     y = [neuronLevels.get(HormoneTracker), result]
 
     # Plotting the points
-    plt.plot(x, y, color='green')
+    plt.plot(x, y, color='blue')
 
     # X-Axis plot
     plt.xlabel('Time (In seconds)')
