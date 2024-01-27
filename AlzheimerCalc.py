@@ -34,6 +34,7 @@ def AlzheimerSim():
     else:
         result = AlzheimerDiseaseCalc - 14
     print("The Alzheimer Simulation is being conducted...")
+    # This function causes the system to pause for 1 second. The time is dependent on the value passed within the parentheses (It reads it in seconds).
     time.sleep(1)
     print("Original value: " + str(neuronLevels.get(HormoneTracker)))
     print("Current value: " + str(result))
