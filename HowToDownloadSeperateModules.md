@@ -1,3 +1,5 @@
+### NOTE: time and sys are built in so you don't need to download them seperately ###
+ 
  # For matplotlib: #
 Go on the editor terminal and type the following command:
 ~~~
